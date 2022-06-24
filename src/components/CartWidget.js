@@ -4,9 +4,15 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 function CartWidget() {
     return (
         <div className='CartWidget'>
-        <ShoppingCart color="primary" fontSize="large"/>
+        <ShoppingCartIcon style={styles.margin} color="primary" sx={{ fontSize: 25 }}/>
         </div>
     );
 }
 
 export default CartWidget;
+
+const styles = {
+    margin:{
+        marginTop: 8,
+    }
+}

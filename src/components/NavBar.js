@@ -17,6 +17,7 @@ function NavBar() {
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ms-auto">
+                            <CartWidget />
                             <li style={styles.lista} class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="../pages/peliculas.html">Peliculas</a>
                             </li>
@@ -28,7 +29,6 @@ function NavBar() {
                 </div>
             </nav>
         </header>
-        <CartWidget />
         </>
     );
 }

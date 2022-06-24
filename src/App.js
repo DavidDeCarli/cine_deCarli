@@ -9,7 +9,7 @@ function App() {
     <>
       <NavBar />
       <h1>Hace tu reserva de cine</h1>
-      <ItemListContainer />
+      <ItemListContainer subtitulo='Venta Anticipada' />
     </>
   );
 }

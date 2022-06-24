@@ -1,9 +1,10 @@
 import React from 'react';
 
-function ItemListContainer() {
+function ItemListContainer(props) {
+    const {subtitulo} = props;
     return (
         <>
-        <p>Mensaje de prueba</p>
+        <p>{subtitulo}</p>
         </>
     );
 }
