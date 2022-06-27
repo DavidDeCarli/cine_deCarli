@@ -4,7 +4,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 function CartWidget() {
     return (
         <div className='CartWidget'>
-        <ShoppingCartIcon style={styles.margin} color="primary" sx={{ fontSize: 25 }}/>
+            <ShoppingCartIcon style={styles.margin} color="primary" sx={{ fontSize: 25 }}/>
         </div>
     );
 }
