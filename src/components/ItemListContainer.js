@@ -1,26 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemCount from './ItemCount';
 import Swal from 'sweetalert2';
+import ItemList from './ItemList';
+import Item  from './Item';
+import BarLoader from "react-spinners/BarLoader";
 
-function ItemListContainer(props) {
-    const {subtitulo} = props;
+const promise = new Promise((res, rej) =>{
+    setTimeout(()=>{
+        res(Item);
+    },2000);
+});
 
-    const [productos, setProductos] = useState([]);
+function ItemListContainer(greeting) {
+    const {subtitulo} = greeting;
+    const [loading, setLoading] = useState(true);
+    const [products, setProducts] = useState([Item]);
 
     const onAdd = () => {
         Swal.fire({
             title: 'Confirmada!',
-            // text: `Usted reservó ${reserva} entrada/s`,
             text: 'Su reserva fue confirmada',
             icon: 'succes',
             confirmButtonText: 'Cerrar'
         })
     }
 
+    useEffect(()=>{
+        promise.then((products)=>{
+            setProducts(products);
+        }).catch((error)=>{
+            console.log(error= 'Error');
+        })
+        .finally(()=>{
+            setLoading(false);
+        })
+    }, []);
+
     return (
         <>
         <p>{subtitulo}</p>
-        <ItemCount productos={productos} onAdd={onAdd} stock={6}/>
+        <ItemCount onAdd={onAdd} stock={6}/>
+        <ItemList/>
+        <BarLoader/>
         </>
     );
 }
