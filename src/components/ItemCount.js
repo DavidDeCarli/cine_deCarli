@@ -20,15 +20,15 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
 
     return (
         <>
-        <div class="container-fluid">
+        <div className="container-fluid">
             <p>Cuantas entradas quiere reservar? Máximo 6 entradas por usuario</p>
             
             <div>
-                <button type="button" class="btn btn-secondary" onClick={quitar}>-</button>
+                <button type="button" className="btn btn-secondary" onClick={quitar}>-</button>
                 <span style={styles.margin}>{reserva}</span>
-                <button type="button" class="btn btn-secondary" onClick={agregar}>+</button>
+                <button type="button" className="btn btn-secondary" onClick={agregar}>+</button>
             </div>
-            <button style={styles.marginTop} type="button" class="btn btn-dark" onClick={onAdd}>Reservar</button>
+            <button style={styles.marginTop} type="button" className="btn btn-dark" onClick={onAdd}>Reservar</button>
         </div>
         </>
     )

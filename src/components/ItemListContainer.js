@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 import ItemCount from './ItemCount';
 import Swal from 'sweetalert2';
 import ItemList from './ItemList';
-import Item  from './Item';
 import BarLoader from "react-spinners/BarLoader";
+import InitialProducts from './InitialProducts';
 
 const promise = new Promise((res, rej) =>{
     setTimeout(()=>{
-        res(Item);
+        res(InitialProducts);
     },2000);
 });
 
 function ItemListContainer(greeting) {
     const {subtitulo} = greeting;
     const [loading, setLoading] = useState(true);
-    const [products, setProducts] = useState([Item]);
+    const [products, setProducts] = useState([]);
 
     const onAdd = () => {
         Swal.fire({
@@ -41,11 +41,8 @@ function ItemListContainer(greeting) {
     return (
         <>
         <p>{subtitulo}</p>
-        <h1>{products}</h1>
-        <h2>{loading}</h2>
         <ItemCount onAdd={onAdd} stock={6}/>
-        <ItemList/>
-        <BarLoader/>
+        {loading ? <BarLoader/> : <ItemList InitialProducts={products}/>}
         </>
     );
 }

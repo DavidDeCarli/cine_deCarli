@@ -6,23 +6,23 @@ import CartWidget from './CartWidget';
 function NavBar() {
     return (
         <>
-        <header class="header navbar-dark bg-dark">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="https://www.cinemarkhoyts.com.ar/">
-                    <img src={logo2} alt='Logo del Cine' width="30" height="24" class="d-inline-block"></img>Cyan Cine Congreso
+        <header className="header navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg">
+                <div className="container-fluid">
+                    <a className="navbar-brand" href="https://www.cinemarkhoyts.com.ar/">
+                    <img src={logo2} alt='Logo del Cine' width="30" height="24" className="d-inline-block"></img>Cyan Cine Congreso
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
-                        <span class="navbar-toggler-icon"></span>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav ms-auto">
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul className="navbar-nav ms-auto">
                             <CartWidget />
-                            <li style={styles.lista} class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../pages/peliculas.html">Peliculas</a>
+                            <li style={styles.lista} className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="../pages/peliculas.html">Peliculas</a>
                             </li>
-                            <li style={styles.lista} class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../pages/candy.html">Candy</a>
+                            <li style={styles.lista} className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="../pages/candy.html">Candy</a>
                             </li>
                         </ul>
                     </div>
