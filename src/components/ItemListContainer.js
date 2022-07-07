@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import ItemList from './ItemList';
 import BarLoader from "react-spinners/BarLoader";
 import InitialProducts from './InitialProducts';
+import ItemDetailContainer from './ItemDetailContainer';
 
 const promise = new Promise((res, rej) =>{
     setTimeout(()=>{
@@ -43,6 +44,7 @@ function ItemListContainer(greeting) {
         <p>{subtitulo}</p>
         <ItemCount onAdd={onAdd} stock={6}/>
         {loading ? <BarLoader/> : <ItemList InitialProducts={products}/>}
+        <ItemDetailContainer/>
         </>
     );
 }

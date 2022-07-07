@@ -5,10 +5,10 @@ import { useParams } from 'react-router-dom';
 
 
 function ItemDetailContainer(){
-    const [products2, setProducts2] =useState({});
+    const [products2, setProducts2] =useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const {id} =useParams();
+    let {id} =useParams();
 
     useEffect(() =>{
         const URL = `https://fakestoreapi.com/products/${id}`;
@@ -23,7 +23,6 @@ function ItemDetailContainer(){
                 setLoading(false);
             }
         }
-        getItem();
 
         setTimeout(()=>{
             getItem();
@@ -35,7 +34,7 @@ function ItemDetailContainer(){
         <>
             {loading ? <BarLoader/> : 
                 error ? <p>Error</p> :
-                    <ItemDetail products2={products2}/>
+                    <ItemDetail product={products2}/>
             }
         </>
     )

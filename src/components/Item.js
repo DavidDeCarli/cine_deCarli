@@ -2,7 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Item (props){
-    console.log(props);
     return (
         <div className='card text-center bg-dark'>
             <img src={props.pictureUrl} alt="Pelicula 1"></img>
