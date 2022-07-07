@@ -8,7 +8,7 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
         if (reserva < stock) {
             setReserva(reserva + 1);
         } else {
-            console.log("Solo se permite 6 reservas por Usuario")
+            console.log("No hay más stock")
         }
     }
 
@@ -21,7 +21,7 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
     return (
         <>
         <div className="container-fluid">
-            <p>Cuantas entradas quiere reservar? Máximo 6 entradas por usuario</p>
+            <p>Aprovecha la oferta con los últimos productos!</p>
             
             <div>
                 <button type="button" className="btn btn-secondary" onClick={quitar}>-</button>

@@ -9,8 +9,8 @@ function NavBar() {
         <header className="header navbar-dark bg-dark">
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="https://www.cinemarkhoyts.com.ar/">
-                    <img src={logo2} alt='Logo del Cine' width="30" height="24" className="d-inline-block"></img>Cyan Cine Congreso
+                    <a className="navbar-brand" href="#">
+                    <img src={logo2} alt='Logo de carrito' width="30" height="24" className="d-inline-block"></img>Compra tus productos
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
                         <span className="navbar-toggler-icon"></span>
@@ -19,10 +19,10 @@ function NavBar() {
                         <ul className="navbar-nav ms-auto">
                             <CartWidget />
                             <li style={styles.lista} className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="../pages/peliculas.html">Peliculas</a>
+                                <a className="nav-link active" aria-current="page" href="#">Productos</a>
                             </li>
                             <li style={styles.lista} className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="../pages/candy.html">Candy</a>
+                                <a className="nav-link active" aria-current="page" href="#">About Us</a>
                             </li>
                         </ul>
                     </div>
