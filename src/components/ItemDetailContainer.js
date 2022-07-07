@@ -11,10 +11,10 @@ function ItemDetailContainer(){
     const {id} =useParams();
 
     useEffect(() =>{
-        const getProducts = `https://fakestoreapi.com/products/${id}`;
+        const URL = `https://fakestoreapi.com/products/${id}`;
         const getItem = async () => {
             try{
-                const response = await fetch(getProducts);
+                const response = await fetch(URL);
                 const data = await response.json();
                 setProducts2(data);
             }catch{
@@ -24,14 +24,19 @@ function ItemDetailContainer(){
             }
         }
         getItem();
+
+        setTimeout(()=>{
+            getItem();
+        },2000);
+
     }, [id]);
 
     return(
         <>
             {loading ? <BarLoader/> : 
                 error ? <p>Error</p> :
-                    <ul>{products2.map((product) => < key={product.id}>{product.title})} </ul>}
-            
+                    <ItemDetail products2={products2}/>
+            }
         </>
     )
 }
