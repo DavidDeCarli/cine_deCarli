@@ -4,12 +4,16 @@ import Swal from 'sweetalert2';
 import ItemList from './ItemList';
 import BarLoader from "react-spinners/BarLoader";
 import ItemDetailContainer from './ItemDetailContainer';
+import { useParams } from 'react-router-dom';
 
 function ItemListContainer(greeting) {
+    const {categoryName} = useParams();
     const {subtitulo} = greeting;
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false)
+
+    
 
     const onAdd = () => {
         Swal.fire({
@@ -20,13 +24,14 @@ function ItemListContainer(greeting) {
         })
     }
 
+    const URL = categoryName ? `https://fakestoreapi.com/products/category/${categoryName}` : `https://fakestoreapi.com/products`;
+
     useEffect(() =>{
-        const URL = `https://fakestoreapi.com/products`;
+        // const URL = `https://fakestoreapi.com/products`;
         const getItems = async () => {
             try{
                 const response = await fetch(URL);
                 const data = await response.json();
-                console.log(data)
                 setProducts(data);
             }catch{
                 setError(true);
@@ -39,7 +44,7 @@ function ItemListContainer(greeting) {
             getItems();
         },2000);
 
-    }, []);
+    }, [categoryName]);
 
     return (
         <>
