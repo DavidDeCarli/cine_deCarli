@@ -11,10 +11,10 @@ const viewport = {
 
 const NavBar = () => {
     const categories = [
-        {name: "Ropa Masculina", id: 0, route: "/category/clotheMale"},
-        {name: "Ropa Femenina", id: 1, route: "/category/clotheFemale"},
+        {name: "Ropa Masculina", id: 0, route: "/category/men's clothing"},
+        {name: "Ropa Femenina", id: 1, route: "/category/women's clothing"},
         {name: "Electronica", id: 2, route: "/category/electronics"},
-        {name: "Accesorios", id: 3, route: "/category/accesory"},
+        {name: "Joyeria", id: 3, route: "/category/jewelery"},
     ];
 
     return (
