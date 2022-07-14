@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ItemCount from './ItemCount';
-import Swal from 'sweetalert2';
 import ItemList from './ItemList';
 import BarLoader from "react-spinners/BarLoader";
 import ItemDetailContainer from './ItemDetailContainer';
@@ -12,17 +10,6 @@ function ItemListContainer(greeting) {
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false)
-
-    
-
-    const onAdd = () => {
-        Swal.fire({
-            title: 'Confirmada!',
-            text: 'Tu compra fue confirmada',
-            icon: 'success',
-            confirmButtonText: 'Cerrar'
-        })
-    }
 
     const URL = categoryName ? `https://fakestoreapi.com/products/category/${categoryName}` : `https://fakestoreapi.com/products`;
 
@@ -49,7 +36,6 @@ function ItemListContainer(greeting) {
     return (
         <>
         <p>{subtitulo}</p>
-        <ItemCount onAdd={onAdd} stock={6}/>
         {error ? <span>Error</span> : null}
         {loading ? <BarLoader/> : <ItemList InitialProducts={products}/>}
         <ItemDetailContainer/>

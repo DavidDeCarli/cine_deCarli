@@ -4,11 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from './CartWidget';
 import {Link, NavLink} from "react-router-dom"
 
-const viewport = {
-    width: document.documentElement.clientWidth,
-    height: document.documentElement.clientHeight
-}
-
 const NavBar = () => {
     const categories = [
         {name: "Ropa Masculina", id: 0, route: "/category/men's clothing"},

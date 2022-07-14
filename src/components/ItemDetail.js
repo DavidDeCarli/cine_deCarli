@@ -1,21 +1,73 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemCount from './ItemCount';
+import Swal from 'sweetalert2';
+import {Link, NavLink} from "react-router-dom"
 
-
-function ItemDetail(products){
+function ItemDetail(props){
+    console.log(props.product)
+    const onAdd = () => {
+        Swal.fire({
+            title: 'Confirmada!',
+            text: 'Tu compra fue confirmada',
+            icon: 'success',
+            confirmButtonText: 'Cerrar'
+        })
+    }
     return (
         <div className='container d-flex justify-content-center bg-info col-md-6'>
-            <div className='row'>
-                <img src={products.product.image} alt={products.product.title}></img>
-                <h1>{products.product.title}</h1>
-                <span>${products.product.price}</span>
-                <p>{products.product.description}</p>
-                <button className='btn btn-warning rounded-0 type="button"'>
-                    <a src='#'>Finalizar compra</a>
-                </button>
+            <div id={props.product.id}>
+                <div className='card text-center bg-dark'>
+                    <img style={{width: '100', height: '100'}} src={props.product.image}></img>
+                    <div className='card-body text-light'>
+                        <h2 className='card-title'>{props.product.title}</h2>
+                        <h4 className='card-title'>{props.product.price}</h4>
+                        <p className='card-text text-secondary'>{props.product.category}</p>
+                        <p className='card-text text-secondary'>{props.product.description}</p>
+                    </div>
+                </div>
             </div>
+            <Link to="/cart"><ItemCount onAdd={onAdd} stock={6}/></Link>
         </div>
+        
     )
 }
 
 export default ItemDetail;
+
+// Tiene que tener un botón englobado con un link que envíe la información a Cart
+// imagen
+//     nombre
+//     descripción
+//     precio
+//     condicion (manejar en un estado de la función onAdd, puede ser con un UseState) ? itemCount :  botonFinalizar
+
+// import ItemDetail from "./ItemDetail";
+
+// function Cart() {
+
+//     const [producto, setProducto] = useState('');
+//     const [productos, setProductos] = useState([]);
+
+//     const controlarCambio = (event) => {
+//         setProducto(event.tarjet.value);
+//     }
+
+//     // Agregar contenido al listado
+//     const modificarCantidad = () => {
+//         const copia = [...productos];
+//         copia.push(producto);
+//         setProductos(copia);
+//         // setProductos([...productos, producto]); abreviado
+//     }
+
+// //     return(
+// //         <div>
+// //             <input onChange={controlarCambio} type='text'></input>
+// //             <button Onclick={modificarCantidad}>Agregar</button>
+// //             <ItemDetail productos ={productos}/>
+// //         </div>
+// //     )
+// // }
+
+// // export default Cart;
