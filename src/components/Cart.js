@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Cart() {
 
     return(
         <div>
-            
+            CARRITO
         </div>
     )
 }

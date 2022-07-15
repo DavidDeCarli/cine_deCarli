@@ -10,7 +10,7 @@ function ItemList({InitialProducts}){
                 {
                     InitialProducts.map((item) => (
                         <div className='card col-md-3' key={item.id}>
-                            <Item title={item.title} image={item.image} price={item.price} category={item.category} description={item.description}/>
+                            <Item item={item}/>
                         </div>
                     ))
                 }

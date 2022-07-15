@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
 import BarLoader from "react-spinners/BarLoader";
-import ItemDetailContainer from './ItemDetailContainer';
 import { useParams } from 'react-router-dom';
 
 function ItemListContainer(greeting) {
@@ -14,7 +13,6 @@ function ItemListContainer(greeting) {
     const URL = categoryName ? `https://fakestoreapi.com/products/category/${categoryName}` : `https://fakestoreapi.com/products`;
 
     useEffect(() =>{
-        // const URL = `https://fakestoreapi.com/products`;
         const getItems = async () => {
             try{
                 const response = await fetch(URL);
@@ -24,6 +22,7 @@ function ItemListContainer(greeting) {
                 setError(true);
             }finally{
                 setLoading(false);
+                console.log(error);
             }
         }
 
@@ -36,9 +35,7 @@ function ItemListContainer(greeting) {
     return (
         <>
         <p>{subtitulo}</p>
-        {error ? <span>Error</span> : null}
         {loading ? <BarLoader/> : <ItemList InitialProducts={products}/>}
-        <ItemDetailContainer/>
         </>
     );
 }

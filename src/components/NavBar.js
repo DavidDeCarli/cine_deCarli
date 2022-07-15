@@ -2,7 +2,7 @@ import React from 'react';
 import logo2 from '../assets/cyan_logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from './CartWidget';
-import {Link, NavLink} from "react-router-dom"
+import { NavLink} from "react-router-dom"
 
 const NavBar = () => {
     const categories = [
@@ -17,15 +17,15 @@ const NavBar = () => {
         <header className="header navbar-dark bg-dark">
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">
+                    <NavLink className="navbar-brand" to="/">
                     <img src={logo2} alt='Logo de carrito' width="30" height="24" className="d-inline-block"></img>Compra tus productos
-                    </Link>
+                    </NavLink>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav ms-auto">
-                            <Link to="/cart"><CartWidget /></Link>
+                            <NavLink to="/cart"><CartWidget /></NavLink>
                             <li style={styles.lista} className="nav-item">{categories.map((category) => <NavLink key={category.id} className="nav-link active d-inline-block" aria-current="page" to={category.route}>{category.name}</NavLink>)}</li>
                         </ul>
                     </div>
