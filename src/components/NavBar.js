@@ -2,7 +2,7 @@ import React from 'react';
 import logo2 from '../assets/cyan_logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from './CartWidget';
-import { NavLink} from "react-router-dom"
+import { NavLink} from "react-router-dom";
 
 const NavBar = () => {
     const categories = [

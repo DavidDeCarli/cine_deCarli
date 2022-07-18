@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink} from "react-router-dom"
+import { NavLink} from "react-router-dom";
 
 
 function Item ({item}){

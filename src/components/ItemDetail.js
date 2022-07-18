@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from './ItemCount';
 import Swal from 'sweetalert2';
-import { NavLink} from "react-router-dom"
+import { NavLink} from "react-router-dom";
 
 function ItemDetail(props){
     console.log(props.product)
@@ -19,7 +19,7 @@ function ItemDetail(props){
             <div className='container d-flex justify-content-center bg-info col-sm-4'>
                 <div id={props.product.id}>
                     <div className='card text-center bg-dark'>
-                        <img src={props.product.image}></img>
+                        <img src={props.product.image} alt={props.product.title}></img>
                         <div className='card-body text-light'>
                             <h2 className='card-title'>{props.product.title}</h2>
                             <h4 className='card-title'>${props.product.price}</h4>
@@ -31,7 +31,7 @@ function ItemDetail(props){
             </div>
             <div className='container d-row text-center bg-info col-sm-4'>
                 <ItemCount onAdd={onAdd} stock={6}/>
-                <NavLink to="/cart"><button className='btn btn-primary rounded-0 type="button"'>Finalizar compra</button></NavLink>
+                <NavLink to="/context/CartContext"><button className='btn btn-primary rounded-0 type="button"'>Finalizar compra</button></NavLink>
             </div>
         </div>
     )
