@@ -4,8 +4,7 @@ import ItemCount from './ItemCount';
 import Swal from 'sweetalert2';
 import { NavLink} from "react-router-dom";
 
-function ItemDetail(props){
-    console.log(props.product)
+function ItemDetail(props, onAdd){
     const onAdd = () => {
         Swal.fire({
             title: 'Confirmada!',
@@ -13,7 +12,9 @@ function ItemDetail(props){
             icon: 'success',
             confirmButtonText: 'Cerrar'
         })
+        document.getElementById('finalizar_compra').style.display='flex'
     }
+
     return (
         <div className='container'>
             <div className='container d-flex justify-content-center bg-info col-sm-4'>
@@ -31,7 +32,7 @@ function ItemDetail(props){
             </div>
             <div className='container d-row text-center bg-info col-sm-4'>
                 <ItemCount onAdd={onAdd} stock={6}/>
-                <NavLink to="/context/CartContext"><button className='btn btn-primary rounded-0 type="button"'>Finalizar compra</button></NavLink>
+                <NavLink to="/context/CartContext"><button id='finalizar_compra' type="button" className='btn btn-primary rounded-0' style={{display:'none'}}>Finalizar compra</button></NavLink>
             </div>
         </div>
     )

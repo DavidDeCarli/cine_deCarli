@@ -5,10 +5,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ButtonGroup from "@mui/material/ButtonGroup";
 
 
-
 const ItemCount = ({stock, initial = 1, onAdd}) => {
     const [cantidad, setCantidad] = useState(initial);
-
     const agregar = () => {
         if (cantidad < stock) {
             setCantidad(cantidad + 1);
@@ -21,11 +19,12 @@ const ItemCount = ({stock, initial = 1, onAdd}) => {
             setCantidad(cantidad - 1);
         }
     }
+    console.log(cantidad)
     return (
         <div className="container-fluid">
             <div>
                 <Badge color="secondary" badgeContent={cantidad}>
-                <ShoppingCartIcon />{" "}
+                <ShoppingCartIcon />
                 </Badge>
                 <ButtonGroup>
                     <button type="button" className="btn btn-secondary" onClick={quitar}>-</button>
