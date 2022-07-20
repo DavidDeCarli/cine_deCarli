@@ -1,18 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemCount from './ItemCount';
 import Swal from 'sweetalert2';
-import { NavLink} from "react-router-dom";
 
-function ItemDetail(props, onAdd){
-    const onAdd = () => {
+function ItemDetail(props){
+    const [itemsAlCarrito, setItemsAlCarrito] = useState(0);
+    const [stock, setStock] = useState(6);
+    const [finalizando, setFinalizando] = useState(false);
+    const onAdd = (cantidad) => {
         Swal.fire({
             title: 'Confirmada!',
             text: 'Tu compra fue confirmada',
             icon: 'success',
             confirmButtonText: 'Cerrar'
         })
-        document.getElementById('finalizar_compra').style.display='flex'
+        setItemsAlCarrito(cantidad);
+        setFinalizando(true);
+        console.log('stock: ', stock)
     }
 
     return (
@@ -31,48 +35,10 @@ function ItemDetail(props, onAdd){
                 </div>
             </div>
             <div className='container d-row text-center bg-info col-sm-4'>
-                <ItemCount onAdd={onAdd} stock={6}/>
-                <NavLink to="/context/CartContext"><button id='finalizar_compra' type="button" className='btn btn-primary rounded-0' style={{display:'none'}}>Finalizar compra</button></NavLink>
+                <ItemCount onAdd={onAdd} stock={stock} setStock={setStock} finalizando={finalizando} />
             </div>
         </div>
     )
 }
 
 export default ItemDetail;
-
-// Tiene que tener un botón englobado con un link que envíe la información a Cart
-// imagen
-//     nombre
-//     descripción
-//     precio
-//     condicion (manejar en un estado de la función onAdd, puede ser con un UseState) ? itemCount :  botonFinalizar
-
-// import ItemDetail from "./ItemDetail";
-
-// function Cart() {
-
-//     const [producto, setProducto] = useState('');
-//     const [productos, setProductos] = useState([]);
-
-//     const controlarCambio = (event) => {
-//         setProducto(event.tarjet.value);
-//     }
-
-//     // Agregar contenido al listado
-//     const modificarCantidad = () => {
-//         const copia = [...productos];
-//         copia.push(producto);
-//         setProductos(copia);
-//         // setProductos([...productos, producto]); abreviado
-//     }
-
-// //     return(
-// //         <div>
-// //             <input onChange={controlarCambio} type='text'></input>
-// //             <button Onclick={modificarCantidad}>Agregar</button>
-// //             <ItemDetail productos ={productos}/>
-// //         </div>
-// //     )
-// // }
-
-// // export default Cart;
