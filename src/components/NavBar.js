@@ -13,11 +13,11 @@ const NavBar = () => {
 
     return (
         <>
-        <header className="header navbar-dark bg-dark">
-            <nav className="navbar navbar-expand-lg">
+        <header className="header">
+            <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
                 <div className="container-fluid">
                     <NavLink className="navbar-brand" to="/">
-                    <img src={logo2} alt='Logo de carrito' width="30" height="24" className="d-inline-block"></img>Compra tus productos
+                        <img src={logo2} alt='Logo de carrito' width="30" height="24" className="d-inline-block"></img>Compra tus productos
                     </NavLink>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
                         <span className="navbar-toggler-icon"></span>

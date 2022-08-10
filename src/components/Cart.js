@@ -75,7 +75,7 @@ function Cart() {
             </div> )}
             <button style={styles.margin} type="button" className="btn btn-dark" onClick={clear}>Reset</button>
             <button style={styles.margin} type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#formularioModal">Finalizar</button>
-            <div className="modal fade" id="formularioModal" tabindex="-1" aria-labelledby="formularioModalLabel" aria-hidden="true">
+            <div className="modal fade" id="formularioModal" tabIndex="-1" aria-labelledby="formularioModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">

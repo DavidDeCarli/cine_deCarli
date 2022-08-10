@@ -1,5 +1,4 @@
 import React, {useState, useContext} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { CartContext } from "../context/CartContext";
 import ItemCount from './ItemCount';
 import Swal from 'sweetalert2';
@@ -9,15 +8,17 @@ function ItemDetail(props){
     const [stock, setStock] = useState(0);
     const [finalizando, setFinalizando] = useState(false);
     const onAdd = (cantidad) => {
-        Swal.fire({
-            title: 'Directo al carrito',
-            text: 'Se agrego el producto al carrito',
-            icon: 'success',
-            confirmButtonText: 'Cerrar'
-        })
-        addProduct(props.product, cantidad)
-        setFinalizando(true);
-        console.log(stock);
+        if(cantidad > 0){
+            Swal.fire({
+                title: 'Directo al carrito',
+                text: 'Se agrego el producto al carrito',
+                icon: 'success',
+                confirmButtonText: 'Cerrar'
+            })
+            addProduct(props.product, cantidad)
+            setFinalizando(true);
+            console.log(stock);
+        }
     }
 
     return (

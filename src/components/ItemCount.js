@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { NavLink} from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroup from "@mui/material/ButtonGroup";
 
 const ItemCount = ({stock, onAdd, setStock, finalizando}) => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import Item  from './Item';
 
-
 function ItemList({InitialProducts}){
     return (
         <div className='container d-flex justify-content-center bg-info'>

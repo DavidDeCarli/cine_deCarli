@@ -1,9 +1,7 @@
 import React from 'react';
 import { NavLink} from "react-router-dom";
 
-
 function Item ({item}){
-
     const {id, title, image, price, category, stock} = item;
 
     return (
