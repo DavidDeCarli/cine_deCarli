@@ -69,7 +69,7 @@ function Cart() {
         <>
         {products.length === 0
             ? <h1>No hay productos, busca <Link to="/">acá</Link></h1>
-            : <>{products.map((product, key) =><div key={key}><h1 key={product.id}>{product.title} ${product.price} cantidad: {product.qty} precio total: {product.totalPrice}</h1>
+            : <>{products.map((product, key) =><div key={key}><li style={styles.lista} key={product.id}>{product.title}, U$S {product.price}, cantidad: {product.qty}, precio total: U$S {product.totalPrice}</li>
                     <button style={styles.margin} type="button" className="btn btn-dark" onClick={() => addProduct(product, 1)}>Agregar</button>
                     <button style={styles.margin} type="button" className="btn btn-dark" onClick={() => deleteProduct(product.id)}>Quitar</button>
             </div> )}
@@ -115,4 +115,7 @@ const styles = {
     margin:{
         margin: 10,
     },
+    lista:{
+        fontSize: '20px'
+    }
 }

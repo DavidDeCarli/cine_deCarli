@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
-import BarLoader from "react-spinners/BarLoader";
+import MoonLoader from "react-spinners/MoonLoader";
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase/firebase';
 import { getDoc, collection, doc } from "firebase/firestore";
@@ -31,9 +31,26 @@ function ItemDetailContainer(){
     return(
         <>  
             {error ? <span>Error</span> : null}
-            {loading ? <BarLoader/> : <ItemDetail product={products2}/>}
+            {
+                loading ? (
+                    <div style={styles.loader}>
+                        <MoonLoader size={150}/>
+                    </div>
+                ) : (
+                <ItemDetail product={products2}/>)
+            }
         </>
     )
 }
 
 export default ItemDetailContainer;
+
+const styles = {
+    loader: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        padding: '50px'
+    }
+}

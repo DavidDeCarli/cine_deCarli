@@ -13,14 +13,15 @@ function App() {
       <BrowserRouter>
         <CartCustomProvider>
           <NavBar />
-          <h1>Busca cualquier producto acá</h1>
-          <Routes>
-            <Route path="/" element={<ItemListContainer subtitulo='Tenemos lo que querés'/>}/>
-            <Route path="/category/:categoryName" element={<ItemListContainer subtitulo='Tenemos lo que querés'/>}/>
-            <Route path="/item/:productId" element={<ItemDetailContainer/>}/>
-            <Route path="/cart" element={<Cart/>}/>
-            <Route path="/context/CartContext" element={<CartContext/>}/>
-          </Routes>
+          <div className='container'>
+            <Routes>
+              <Route path="/" element={<ItemListContainer subtitulo='Tenemos lo que querés'/>}/>
+              <Route path="/category/:categoryName" element={<ItemListContainer subtitulo='Tenemos lo que querés'/>}/>
+              <Route path="/item/:productId" element={<ItemDetailContainer/>}/>
+              <Route path="/cart" element={<Cart/>}/>
+              <Route path="/context/CartContext" element={<CartContext/>}/>
+            </Routes>
+          </div>  
         </CartCustomProvider>
       </BrowserRouter>
     </>

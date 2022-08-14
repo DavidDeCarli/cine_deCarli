@@ -5,15 +5,17 @@ function Item ({item}){
     const {id, title, image, price, category, stock} = item;
 
     return (
-        <div style={styles.card} className='card text-center bg-dark'>
-            <img style={styles.cardImg} src={image} alt={title}></img>
-            <div className='card-body text-light'>
-                <h2 className='card-title'>{title}</h2>
-                <h4 className='card-title'>${price}</h4>
-                <p className='card-text text-secondary'>{category}</p>
-                <p className='card-text text'>{stock}</p>
-                <NavLink to={`/item/${id}`}><button className='btn btn-outline-secondary rounded-0 type="button"'>Mostrar detalle</button></NavLink>
-            </div>   
+        <div className='col-3' style={styles.columna}>
+            <div style={styles.card} className='card text-center bg-dark'>
+                <img className='card-img-top' style={styles.cardImg} src={image} alt={title}></img>
+                <div className='card-body text-light'>
+                    <h4 className='card-title'>{title}</h4>
+                    <h5 className='card-title'>U$S {price}</h5>
+                    <p className='card-text text-secondary'>{category}</p>
+                    <p className='card-text text'>Stock: {stock}</p>
+                    <NavLink to={`/item/${id}`}><button className='btn btn-outline-secondary rounded-0 type="button"'>Mostrar detalle</button></NavLink>
+                </div>   
+            </div>
         </div>
     );
 }
@@ -21,16 +23,13 @@ function Item ({item}){
 export default Item;
 
 const styles = {
-    card:{
-        width: '100%',
-        height: '100%',
-        border: 0,
-        margin: 'auto auto',
-        textAlign: 'center',
-        backgroundColor: 'transparent'
+    columna: {
+        paddingBottom: '20px'
     },
-    cardImg:{
-        width: '100%',
-        height: '100%',
+    card: {
+        height: '100%'
+    },
+    cardImg: {
+        height: '250px'
     }
 }

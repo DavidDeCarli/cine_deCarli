@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ItemList from './ItemList';
-import BarLoader from "react-spinners/BarLoader";
+import MoonLoader from "react-spinners/MoonLoader";
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase/firebase';
 import { getDocs, collection, query, where} from "firebase/firestore";
@@ -13,7 +13,6 @@ function ItemListContainer(greeting) {
     let { categoryName } = useParams();
 
     categoryName = categoryName !== undefined ? categoryName : false;
-
 
     useEffect(() =>{
         const productCollection = collection(db, 'productos');
@@ -42,11 +41,32 @@ function ItemListContainer(greeting) {
 
     return (
         <>
-        <p>{subtitulo}</p>
-        {error ? <span>Error</span> : null}
-        {loading ? <BarLoader/> : <ItemList InitialProducts={products}/>}
+            {error ? <span>Error</span> : null}
+            {
+                loading ? (
+                    <div style={styles.loader}>
+                        <MoonLoader size={150}/>
+                    </div>
+                ) : (
+                    <>
+                        <h1>Busca cualquier producto acá</h1>
+                        <p>{subtitulo}</p>
+                        <ItemList InitialProducts={products}/>
+                    </>
+                )
+            }
         </>
     );
 }
 
 export default ItemListContainer;
+
+const styles = {
+    loader: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        minHeight: '100vh',
+        padding: '50px'
+    }
+}

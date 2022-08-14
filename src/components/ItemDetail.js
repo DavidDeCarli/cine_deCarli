@@ -23,21 +23,21 @@ function ItemDetail(props){
 
     return (
         <div className='container'>
-            <div className='container d-flex justify-content-center bg-info col-sm-4'>
+            <div className='container d-flex justify-content-center col-sm-4 mt-2'>
                 <div id={props.product.id}>
                     <div className='card text-center bg-dark'>
-                        <img src={props.product.image} alt={props.product.title}></img>
+                        <img style={styles.imagen} src={props.product.image} alt={props.product.title}></img>
                         <div className='card-body text-light'>
                             <h2 className='card-title'>{props.product.title}</h2>
-                            <h4 className='card-title'>${props.product.price}</h4>
+                            <h4 className='card-title'>U$S {props.product.price}</h4>
                             <p className='card-text text-secondary'>{props.product.category}</p>
                             <p className='card-text text-secondary'>{props.product.description}</p>
-                            <p className='card-text text-secondary'>{props.product.stock}</p>
+                            <p className='card-text text-secondary'>Stock: {props.product.stock}</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className='container d-row text-center bg-info col-sm-4'>
+            <div className='container d-row text-center col-sm-4 mt-1'>
                 <ItemCount onAdd={onAdd} stock={props.product.stock} setStock={setStock} finalizando={finalizando} />
             </div>
         </div>
@@ -45,3 +45,9 @@ function ItemDetail(props){
 }
 
 export default ItemDetail;
+
+const styles = {
+    imagen: {
+        height: '550px'
+    }
+}

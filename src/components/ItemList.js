@@ -3,16 +3,14 @@ import Item  from './Item';
 
 function ItemList({InitialProducts}){
     return (
-        <div className='container d-flex justify-content-center bg-info'>
-            {<div className='row'>
+        <div className='container'>
+            <div className='row'>
                 {
                     InitialProducts.map((item) => (
-                        <div className='card col-md-3' key={item.id}>
-                            <Item item={item}/>
-                        </div>
+                        <Item item={item} key={item.id}/>
                     ))
                 }
-            </div>}
+            </div>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ButtonGroup from "@mui/material/ButtonGroup";
 
 const ItemCount = ({stock, onAdd, setStock, finalizando}) => {
@@ -27,11 +27,28 @@ const ItemCount = ({stock, onAdd, setStock, finalizando}) => {
                     <button type="button" className="btn btn-secondary" onClick={increase}>+</button>
                 </ButtonGroup>
             </div>
-            {finalizando 
-                ? <NavLink to="/cart"><button id='finalizar_compra' type="button" className='btn btn-primary rounded-0'>Finalizar compra</button></NavLink>
-                : <button style={styles.marginTop} type="button" className="btn btn-dark" onClick={() => onAdd(cantidad)}>Agregar al carrito</button>
-            }
-            <NavLink to="/"><button type="button" className='btn btn-primary rounded-0'>Seguir comprando</button></NavLink>
+            <div className="container d-flex justify-content-center">
+                <div class="btn-group" role="group">
+                    {
+                        finalizando ? (
+                            <NavLink to="/cart">
+                                <button id='finalizar_compra' style={styles.button} type="button" className='btn btn-primary rounded-0'>
+                                    Finalizar compra
+                                </button>
+                            </NavLink>
+                        ) : (
+                            <button style={styles.button} type="button" className="btn btn-dark rounded-0" onClick={() => onAdd(cantidad)}>
+                                Agregar al carrito
+                            </button>
+                        )
+                    }
+                </div>
+                <div class="btn-group" role="group">
+                    <NavLink to="/" style={styles.button} className='btn btn-secondary rounded-0'>
+                        Seguir comprando
+                    </NavLink>
+                </div>
+            </div>
         </div>
     )
 }
@@ -42,7 +59,8 @@ const styles = {
     margin:{
         margin: 10,
     },
-    marginTop:{
+    button:{
         marginTop: 10,
+        padding: 10
     }
 }
